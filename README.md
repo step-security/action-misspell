@@ -1,1 +1,102 @@
-# action-misspell
+# GitHub Action: Run misspell with reviewdog
+
+This action runs [misspell](https://github.com/golangci/misspell) with
+[reviewdog](https://github.com/reviewdog/reviewdog) on pull requests to improve
+code review experience.
+
+[![sample annotation](https://user-images.githubusercontent.com/3797062/64926127-b8b0bc00-d834-11e9-97d5-5b6aa06dc573.png)](https://github.com/step-security/action-misspell/pull/1/files)
+
+## Inputs
+
+### `github_token`
+
+Optional. `${{ github.token }}` is used by default.
+
+### `locale`
+
+Optional. -locale flag of misspell. [`US`/`UK`]
+
+### `level`
+
+Optional. Report level for **reviewdog** [`info`,`warning`,`error`].
+It's the same as the `-level` flag of **reviewdog**.
+
+### `reporter`
+
+Optional. Reporter for **reviewdog** command [`github-pr-check`,`github-pr-review`].
+It's the same as the `-reporter` flag of reviewdog.
+
+### `ignore`
+
+Optional. Ignore (`-i`) a list of comma-separated words.  [`armor`] / [`armor,color`].
+
+### `path`
+
+Optional. Base directory to run misspell. Same as `[path]` of `find` command. Default: `.`
+
+Directories are separated by lines. e.g.:
+```yml
+path: |
+  doc
+  src
+```
+
+### `pattern`
+
+Optional. File patterns of target files. Same as `-name [pattern]` of `find` command. Default: `*`
+
+Patterns are separated by lines. e.g.:
+```yml
+pattern: |
+  *.py
+  *.sh
+```
+
+### `exclude`
+
+Optional. Exclude patterns of target files. Same as `-not -path [exclude]` of `find` command.
+e.g. `./.git/*`
+
+Patterns are separated by lines. e.g.:
+```yml
+exclude: |
+  ./.git/*
+  ./.cache/*
+```
+
+### `filter_mode`
+
+Optional. Filtering mode for the reviewdog command [`added`,`diff_context`,`file`,`nofilter`]. Default: `added`.
+
+### `fail_level`
+
+Optional. If set to `none`, always use exit code 0 for reviewdog.
+Otherwise, exit code 1 for reviewdog if it finds at least 1 issue with severity greater than or equal to the given level.
+Possible values: [`none`, `any`, `info`, `warning`, `error`]
+Default is `none`.
+
+### `fail_on_error`
+
+Deprecated, use `fail_level` instead.
+Optional. Exit code for reviewdog when errors are found [`true`,`false`]. Default: `false`.
+
+## Example usage
+
+### [.github/workflows/reviewdog.yml](.github/workflows/reviewdog.yml)
+
+```yml
+name: reviewdog
+on: [pull_request]
+jobs:
+  misspell:
+    name: runner / misspell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code.
+        uses: actions/checkout@v4
+      - name: misspell
+        uses: step-security/action-misspell@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          locale: "US"
+```

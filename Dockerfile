@@ -6,7 +6,8 @@ RUN apk add --no-cache \
         ca-certificates \
         git \
         wget \
-        curl
+        curl \
+        bash
 
 RUN git clone --depth 1 --branch ${REVIEWDOG_VERSION} https://github.com/reviewdog/reviewdog.git /reviewdog \
     && cd /reviewdog \

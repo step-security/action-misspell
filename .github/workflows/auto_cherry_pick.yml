@@ -8,6 +8,9 @@ on:
         required: true
         default: "main"
 
+  pull_request:
+    types: [labeled, opened, synchronize]
+
 permissions:
   contents: write
   pull-requests: write
@@ -16,8 +19,9 @@ permissions:
 
 jobs:
   cherry-pick:
-    uses: step-security/reusable-workflows/.github/workflows/auto_cherry_pick.yaml@v1
+    uses: step-security/reusable-workflows/.github/workflows/auto_cherry_pick.yaml@fix_Verify_cherry_pick-Logic
     with:
       original-owner: "reviewdog"
       repo-name: "action-misspell"
       base_branch: ${{ inputs.base_branch }}
+      mode: ${{ github.event_name == 'pull_request' && 'verify' || inputs.mode }}

@@ -1,4 +1,4 @@
-FROM golang:1.25.3-alpine3.22@sha256:aee43c3ccbf24fdffb7295693b6e33b21e01baec1b2a55acc351fde345e9ec34
+FROM golang:1.25.5-alpine3.23@sha256:26111811bc967321e7b6f852e914d14bede324cd1accb7f81811929a6a57fea9
 
 ENV REVIEWDOG_VERSION=v0.21.0 \
     MISSPELL_VERSION=v0.7.0
@@ -13,7 +13,7 @@ RUN apk add --no-cache \
 # Build reviewdog
 RUN git clone --depth 1 --branch ${REVIEWDOG_VERSION} https://github.com/reviewdog/reviewdog.git /reviewdog \
     && cd /reviewdog \
-    && go mod edit -require=golang.org/x/crypto@v0.35.0 \
+    && go mod edit -require=golang.org/x/crypto@v0.45.0 \
     && go mod edit -require=golang.org/x/oauth2@v0.27.0 \
     && go mod tidy \
     && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o reviewdog ./cmd/reviewdog \

@@ -42,7 +42,7 @@ inputs:
     default: 'false'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/step-security/action-misspell:v1.27.1@sha256:ee14f6dd4f561b9ab3b85aa7727d8ea62033beb2cc7ceec2ff6cb4686e76d19a' #v1.27.1
+  image: 'docker://ghcr.io/step-security/action-misspell:v1.27.2@sha256:48851cc796153d2a4486364f250f671156d56c31cab2a8bbcf215423512552cd' #v1.27.2
 branding:
   icon: 'edit'
   color: 'gray-dark'

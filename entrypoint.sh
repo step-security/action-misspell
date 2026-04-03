@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # validate subscription status
+REPO_PRIVATE=$(jq -r '.repository.private | tostring' "$GITHUB_EVENT_PATH" 2>/dev/null || echo "")
 UPSTREAM="reviewdog/action-misspell"
 ACTION_REPO="${GITHUB_ACTION_REPOSITORY:-}"
 DOCS_URL="https://docs.stepsecurity.io/actions/stepsecurity-maintained-actions"

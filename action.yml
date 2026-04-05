@@ -42,9 +42,7 @@ inputs:
     default: 'false'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/step-security/action-misspell:v1.27.2@sha256:2f97cb554818f227810d7d898ae577b45fbc3bd5a6d97a6216ebdcaec04854fc' #v1.27.2
-  env:
-    REPO_PRIVATE: ${{ github.event.repository.private }}
+  image: 'docker://ghcr.io/step-security/action-misspell:v1.27.2@sha256:48851cc796153d2a4486364f250f671156d56c31cab2a8bbcf215423512552cd' #v1.27.2
 branding:
   icon: 'edit'
   color: 'gray-dark'

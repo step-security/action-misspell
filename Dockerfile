@@ -8,7 +8,8 @@ RUN apk add --no-cache \
         git \
         wget \
         curl \
-        bash
+        bash \
+        jq
 
 # Build reviewdog
 RUN git clone --depth 1 --branch ${REVIEWDOG_VERSION} https://github.com/reviewdog/reviewdog.git /reviewdog \

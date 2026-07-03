@@ -1,0 +1,18 @@
+{
+   "schema_version": "1",
+   "onboarding_type": "copied",
+   "archived": false,
+   "maintained_action_name": "step-security/action-misspell",
+   "upstream_full_repo_name": "reviewdog/action-misspell",
+   "action_type": "docker",
+   "last_release": {
+     "tag_name": "v1.27.2",
+     "created_at": "2026-04-06T19:59:59Z",
+     "published_at": "2026-04-09T18:59:28Z"
+   },
+   "sync": {
+     "ignore_presets": [
+       "defaults_v1"
+     ]
+   }
+ }

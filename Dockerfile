@@ -1,7 +1,7 @@
 FROM golang:1.26-alpine3.23@sha256:2389ebfa5b7f43eeafbd6be0c3700cc46690ef842ad962f6c5bd6be49ed82039
 
-ENV REVIEWDOG_VERSION=v0.21.0 \
-    MISSPELL_VERSION=v0.7.0
+ENV REVIEWDOG_VERSION=v0.21.2 \
+    MISSPELL_VERSION=v0.8.0
 
 RUN apk add --no-cache \
         ca-certificates \

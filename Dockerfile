@@ -1,6 +1,6 @@
 FROM golang:1.26-alpine3.24@sha256:3082400e369fa24d5fc60bca20edab3f6d604e0c5a690ec66b295eff4dd87ade
 
-ENV REVIEWDOG_VERSION=v0.21.2 \
+ENV REVIEWDOG_VERSION=v0.21.3 \
     MISSPELL_VERSION=v0.8.0
 
 RUN apk add --no-cache \

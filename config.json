@@ -1,0 +1,12 @@
+{
+  "$comment": "Managed automatically when syncing with upstream. Do not edit by hand.",
+  "schema_version": 1,
+  "onboarding_type": "copied",
+  "action_type": "docker",
+  "upstream": {
+    "repository": "reviewdog/action-misspell",
+    "synced_tag": "v1.31.0",
+    "synced_commit": "c846b6b0996029d2d39540c8ffebebbd957072db",
+    "archived": false
+  }
+}
